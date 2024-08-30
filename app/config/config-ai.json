@@ -1,0 +1,79 @@
+{
+    "models": {
+      "model_OAI_GPT_4": {
+        "type": "text",
+        "name": "gpt-4o-mini",
+        "max_tokens": 1000,
+        "temperature": 0.5,
+        "provider": "OpenAI"
+      },
+      "model_ANT_CLAUDE_SONNET": {
+        "type": "Language",
+        "name": "claude-3-5-sonnet-20240620",
+        "max_tokens": 1000,
+        "temperature": 0.6,
+        "provider": "Anthropic"
+      },
+      "model_META_LLAMA_3": {
+        "type": "Language",
+        "name": "llama-3.1-70b-versatile",
+        "max_tokens": 1000,
+        "temperature": 0.7,
+         "provider": "Groq"
+      },
+      "model_GOG_GEMINI_P": {
+        "type": "Language",
+        "name": "gemini-1.5-flash",
+        "max_tokens": 1000,
+        "temperature": 0.7,
+         "provider": "Google"
+      },
+      "model_MIXTRAL_8X7B": {
+        "type": "Language",
+        "name": "mixtral-8x7b-32768",
+        "max_tokens": 1000,
+        "temperature": 0.7,
+         "provider": "Groq"
+      },
+      "model_EMBEDDING_1": {
+        "type": "Embedding",
+        "name": "text-embedding-3-large",
+        "max_tokens": 1000,
+        "temperature": 0.7,
+         "provider": "Groq"
+      },
+      "model_4": {
+        "type": "Image",
+        "name": "DALL·E",
+        "resolution": "1024x1024",
+        "style": "photorealistic",
+        "provider": "OpenAI"
+      },
+      "model_5": {
+        "type": "Audio",
+        "model": "Whisper",
+        "language": "en",
+        "provider": "OpenAI"
+      }
+    },
+    "agents": {
+      "multimodal_support": true,
+      "default_language": "es",
+      "response_format": "json",
+      "retry_attempts": 3,
+      "timeout_per_request": 30
+    },
+    "tools": {
+      "tool_1": {
+        "type": "Search_Web",
+        "name": "ToolName",
+        "api_url": "https://api.tool.com/endpoint"
+      },
+      "tool_2": {
+        "name": "Code_Exec",
+        "timeout": 10,
+        "enabled": true
+      }
+    }
+  }
+  
