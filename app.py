@@ -1,6 +1,3 @@
-import sys
-import os
-
 from app.main import Main
 
 if __name__ == "__main__":
