@@ -1,0 +1,18 @@
+repos:
+-   repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+    - id: black
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+-   repo: local
+    hooks:
+    -   id: update-requirements
+        name: Update requirements.txt
+        entry: bash -c 'pip freeze > requirements.txt'
+        language: system
+        always_run: true  # Ejecutar siempre este hook
+        files: ^requirements.txt  # Solo afecta a requirements.txt
