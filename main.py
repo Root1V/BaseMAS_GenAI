@@ -1,4 +1,4 @@
-from app.main import Main
+from app.app import App
 
 
 def main():
@@ -7,7 +7,7 @@ def main():
     """
     print("START AUTONOMOUS SYSTEMS MULTI AGENT:\n")
 
-    app = Main()
+    app = App()
     app.run()
 
 
