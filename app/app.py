@@ -4,12 +4,32 @@ from app.config.prompt_enum import AgentType
 from dotenv import load_dotenv
 
 
-class Main:
+class App:
+    """
+    Clase principal que gestiona la creación y ejecución de modelos de lenguaje.
+
+    Esta clase es responsable de instanciar varios modelos de lenguaje y generar
+    texto basado en solicitudes específicas. Facilita la interacción con diferentes
+    tipos de modelos de inteligencia artificial.
+    """
 
     def __init__(self) -> None:
+        """
+        Inicializa una nueva instancia de la clase Main.
+
+        Este constructor no requiere parámetros y no realiza ninguna acción
+        adicional en la inicialización.
+        """
         pass
 
     def run(self):
+        """
+        Ejecuta el proceso de generación de texto utilizando diferentes modelos de lenguaje.
+
+        Este método crea instancias de varios modelos de lenguaje a través de la
+        fábrica de modelos y genera respuestas basadas en solicitudes específicas.
+        Luego, imprime las respuestas generadas por cada modelo en la consola.
+        """
 
         gptModel = LLMFactory.create(model=ModelLLM.MODEL_GPT, type=AgentType.ASISTANT)
         claudeModel = LLMFactory.create(
@@ -49,11 +69,9 @@ class Main:
 
 
 if __name__ == "__main__":
-    print("App:\n")
-
     load_dotenv()
 
-    app = Main()
+    app = App()
     app.run()
 
 # "Dime como puedo crear una clase que me permita instanciar un modelo LLM, considerando que pueden haber varios proveedores de LLM"

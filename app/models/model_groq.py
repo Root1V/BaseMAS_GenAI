@@ -7,7 +7,21 @@ from app.config.prompt import PromptLLM
 
 
 class GroqModel(BaseLLM):
+    """
+    Clase que representa un modelo de lenguaje Groq, heredando de BaseLLM.
+
+    Esta clase permite la generación de texto, audio e imágenes utilizando el modelo
+    especificado y proporciona prompts configurados según el tipo de agente.
+    """
+
     def __init__(self, type: AgentType, model: ModelLLM = ModelLLM.MODEL_LLAMA) -> None:
+        """
+        Inicializa el modelo Groq con la configuración adecuada y los prompts.
+
+        Args:
+            type (AgentType): Tipo de agente que define el comportamiento del modelo.
+            model (ModelLLM, opcional): El modelo a utilizar, por defecto es MODEL_LLAMA.
+        """
         super().__init__()
         self.config = ConfigLLM.get(model)
         self.client = Groq()
@@ -17,7 +31,15 @@ class GroqModel(BaseLLM):
         print("\nUSER: \n", self.USER_PROMPT)
 
     def generate_text(self, prompt):
+        """
+        Genera texto a partir de un prompt dado utilizando el modelo Groq.
 
+        Args:
+            prompt (str): El texto de entrada para generar la respuesta.
+
+        Returns:
+            str: La respuesta generada por el modelo.
+        """
         super().generate_text(prompt)
         print("LLAMA LLM: ", prompt)
 
@@ -36,11 +58,29 @@ class GroqModel(BaseLLM):
         return message
 
     def generate_audio(self, prompt):
+        """
+        Genera audio a partir de un prompt dado.
+
+        Args:
+            prompt (str): El texto de entrada para generar el audio.
+
+        Returns:
+            None: Esta función no devuelve ningún valor.
+        """
         # Implementación para generar audio
         print("Generating audio with input:", prompt)
         # Lógica para generar audio aquí
 
     def generate_image(self, prompt):
+        """
+        Genera una imagen a partir de un prompt dado.
+
+        Args:
+            prompt (str): El texto de entrada para generar la imagen.
+
+        Returns:
+            None: Esta función no devuelve ningún valor.
+        """
         # Implementación para generar imagen
         print("Generating image with input:", prompt)
         # Lógica para generar imagen aquí
