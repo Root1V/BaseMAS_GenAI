@@ -13,8 +13,13 @@ class Agent():
     role: str = 'Assistant'
     name: str = 'Elysia'  
     goal: Optional[str] = None
-    tools: List[str] = []  
+    tools: List[object] = []  
     signal: Optional[str] = None
+    llm: object = None
+    memory: bool = False
+    planning: bool = False
+    max_iteration: int = 20
+    master: bool = False
 
     def __init__(self) -> None:
         pass
