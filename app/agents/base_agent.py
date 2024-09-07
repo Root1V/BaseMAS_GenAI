@@ -1,4 +1,6 @@
-class Agente:
+from typing import Optional, List
+
+class Agent():
     """
     Clase base para todos los agentes.
 
@@ -8,3 +10,12 @@ class Agente:
     entorno específico, facilitando la extensión y personalización de su
     comportamiento.
     """
+    role: str = 'Assistant'
+    name: str = 'Elysia'  
+    goal: Optional[str] = None
+    tools: List[str] = []  
+    signal: Optional[str] = None
+
+    def __init__(self) -> None:
+        pass
+    

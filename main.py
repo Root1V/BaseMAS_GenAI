@@ -1,4 +1,5 @@
 from app.app import App
+from app.agents.base_agent import Agent
 
 
 def main():
@@ -7,8 +8,11 @@ def main():
     """
     print("START AUTONOMOUS SYSTEMS MULTI AGENT:\n")
 
-    app = App()
-    app.run()
+    #app = App()
+    #app.run()#
+
+    agent = Agent()
+    print(agent.role) 
 
 
 if __name__ == "__main__":
