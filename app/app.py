@@ -31,7 +31,9 @@ class App:
         Luego, imprime las respuestas generadas por cada modelo en la consola.
         """
 
-        gptModel = LLMFactory.create(model=ModelLLM.MODEL_GPT, type=AgentType.ASISTANT)
+        gptModel = LLMFactory.create(
+            model=ModelLLM.MODEL_GPT, type=AgentType.ASISTANT
+        )
         claudeModel = LLMFactory.create(
             model=ModelLLM.MODEL_CLAUDE, type=AgentType.PROGRAMMER
         )
