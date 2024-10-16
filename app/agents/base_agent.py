@@ -20,6 +20,7 @@ class Agent():
     planning: bool = False
     max_iteration: int = 20
     master: bool = False
+    endSignal: str = "END"
 
     def __init__(self) -> None:
         pass
