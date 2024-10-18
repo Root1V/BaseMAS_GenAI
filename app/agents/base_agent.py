@@ -21,6 +21,7 @@ class Agent():
     max_iteration: int = 20
     master: bool = False
     endSignal: str = "END"
+    avatar: str = "random"
 
     def __init__(self) -> None:
         pass
