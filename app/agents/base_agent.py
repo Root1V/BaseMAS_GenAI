@@ -22,6 +22,7 @@ class Agent():
     master: bool = False
     endSignal: str = "END"
     avatar: str = "random"
+    messages: List[str] = []
 
     def __init__(self) -> None:
         pass
