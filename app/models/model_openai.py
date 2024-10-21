@@ -1,9 +1,6 @@
 from openai import OpenAI
 from app.models.model_base import BaseLLM
-from app.config.prompt_enum import AgentType
-from app.config.config import ConfigLLM
 from app.config.model_enum import ModelLLM
-from app.config.prompt import PromptLLM
 
 
 class OpenAIModel(BaseLLM):
@@ -13,21 +10,22 @@ class OpenAIModel(BaseLLM):
     y gestionar la generación de texto, audio e imágenes.
     """
 
-    def __init__(self, type: AgentType, model: ModelLLM = ModelLLM.MODEL_GPT) -> None:
+    def __init__(self, model: ModelLLM = ModelLLM.MODEL_GPT) -> None:
         """
         Inicializa el modelo de OpenAI con un tipo de agente y un modelo específico.
 
         Args:
-            type (AgentType): Tipo de agente que define el comportamiento del modelo.
             model (ModelLLM, opcional): Modelo de lenguaje a utilizar, por defecto es MODEL_GPT.
         """
         super().__init__()
-        self.config = ConfigLLM.get(model)
+        super().getConfig(model)
         self.client = OpenAI()
-        self.SYS_PROMPT, self.USER_PROMPT = PromptLLM().get_prompts_type(type)
 
         print("\nSYSTEM: \n", self.SYS_PROMPT)
         print("\nUSER: \n", self.USER_PROMPT)
+
+    def set_prompt(type):
+        super().getPrompts(type)
 
     def generate_text(self, prompt):
         """

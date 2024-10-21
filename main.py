@@ -8,11 +8,11 @@ def main():
     """
     print("START AUTONOMOUS SYSTEMS MULTI AGENT:\n")
 
-    #app = App()
-    #app.run()#
+    # app = App()
+    # app.run()
 
-    agent = Agent()
-    print(agent.role) 
+    agent = Agent(goal="Tu objetivo es crear una APP WEB")
+    print(agent.name)
 
 
 if __name__ == "__main__":

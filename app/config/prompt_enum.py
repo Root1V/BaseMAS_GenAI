@@ -17,6 +17,8 @@ class PromptEnum(Enum):
     DESIGNER_USER = "designer_user.txt"
     PROGRAMMER_SYS = "programmer_sys.txt"
     PROGRAMMER_USER = "programmer_user.txt"
+    DEFAULT_SYS = "default_sys.txt"
+    DEFAULT_USER = "default_user.txt"
 
 
 class AgentType(Enum):
@@ -31,3 +33,4 @@ class AgentType(Enum):
     WRITER = (PromptEnum.WRITER_SYS, PromptEnum.WRITER_USER)
     DESIGNER = (PromptEnum.DESIGNER_SYS, PromptEnum.DESIGNER_USER)
     PROGRAMMER = (PromptEnum.PROGRAMMER_SYS, PromptEnum.PROGRAMMER_USER)
+    DEFAULT = (PromptEnum.DEFAULT_SYS, PromptEnum.DEFAULT_USER)
