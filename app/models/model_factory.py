@@ -3,7 +3,6 @@ from app.models.model_openai import OpenAIModel
 from app.models.model_groq import GroqModel
 from app.models.model_anthropic import AnthropicModel
 from app.models.model_google import GoogleModel
-from app.config.prompt_enum import AgentType
 from app.config.model_enum import ModelLLM
 
 
@@ -17,14 +16,13 @@ class LLMFactory:
     """
 
     @staticmethod
-    def create(model: ModelLLM, type: AgentType) -> BaseLLM:
+    def create(model: ModelLLM) -> BaseLLM:
         """
         Crea una instancia de un modelo de lenguaje basado en el tipo de modelo
         y el tipo de agente proporcionados.
 
         Args:
             model (ModelLLM): El tipo de modelo de lenguaje que se desea crear.
-            type (AgentType): El tipo de agente que se utilizará con el modelo.
 
         Returns:
             BaseLLM: Una instancia del modelo de lenguaje correspondiente.
@@ -34,12 +32,12 @@ class LLMFactory:
             soportado por la fábrica.
         """
         if model == ModelLLM.MODEL_GPT:
-            return OpenAIModel(type, model)
+            return OpenAIModel(model)
         elif model in (ModelLLM.MODEL_LLAMA, ModelLLM.MODEL_MIXTRAL):
-            return GroqModel(type, model)
+            return GroqModel(model)
         elif model == ModelLLM.MODEL_CLAUDE:
-            return AnthropicModel(type, model)
+            return AnthropicModel(model)
         elif model == ModelLLM.MODEL_GEMINI:
-            return GoogleModel(type, model)
+            return GoogleModel(model)
         else:
             raise ValueError(f"Unsupported provider: {model.value}")

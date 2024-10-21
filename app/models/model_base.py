@@ -1,4 +1,7 @@
 from abc import ABC, abstractmethod
+from app.config.config import ConfigLLM
+from app.config.prompt import PromptLLM
+from app.config.prompt_enum import AgentType
 
 
 class BaseLLM(ABC):
@@ -17,6 +20,15 @@ class BaseLLM(ABC):
         Este constructor llama al constructor de la clase base.
         """
         super().__init__()
+        self.SYS_PROMPT = None
+        self.USER_PROMPT = None
+        self.getPrompts(AgentType.DEFAULT)
+
+    def getConfig(self, model):
+        self.config = ConfigLLM.get(model)
+
+    def getPrompts(self, type):
+        self.SYS_PROMPT, self.USER_PROMPT = PromptLLM().get_prompts_type(type)
 
     @abstractmethod
     def generate_text(self, prompt):
