@@ -3,6 +3,7 @@ from app.models.model_factory import LLMFactory
 from app.config.model_enum import ModelLLM
 from app.config.prompt_enum import AgentType
 from app.system.system import System
+import logging
 
 
 class Agent:
@@ -46,6 +47,19 @@ class Agent:
         if name == "default":
             self.name = System().createName(self.llm.SYS_PROMPT)
 
-    def create(self):
+    def run(self):
+        print(f"Imprimir nombre: {self.name}")
 
-        print(f"Imprimor nombre: {self.name}")
+    def add_message(self, message):
+        self.messages.append(message)
+
+    def remove_message(self, index):
+        if index < len(self.messages):
+            self.messages.pop(index)
+
+    def get_message(self, request):
+        return self.llm.generate_text(request)
+
+
+if __name__ == "__main__":
+    logger = logging.getLogger("esev.agent")
