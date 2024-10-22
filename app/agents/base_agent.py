@@ -48,6 +48,7 @@ class Agent:
             self.name = System().createName(self.llm.SYS_PROMPT)
 
     def run(self):
+        logger.info("Search Engine: LLM")
         print(f"Imprimir nombre: {self.name}")
 
     def add_message(self, message):
