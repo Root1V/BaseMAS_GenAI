@@ -5,6 +5,15 @@ from app.config.prompt_enum import AgentType
 from app.system.system import System
 import logging
 
+# Configura el logger raíz (asegúrate de hacer esto antes de crear cualquier logger)
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+
+# Crear el logger específico para "esev.agent"
+logger = logging.getLogger("ia.agent")
+logger.setLevel(logging.INFO)  # Asegúrate de que el nivel de logging sea INFO
+
 
 class Agent:
     """
@@ -48,8 +57,7 @@ class Agent:
             self.name = System().createName(self.llm.SYS_PROMPT)
 
     def run(self):
-        logger.info("Search Engine: LLM")
-        print(f"Imprimir nombre: {self.name}")
+        logger.info(f"Imprimir nombre: {self.name}")
 
     def add_message(self, message):
         self.messages.append(message)
@@ -60,7 +68,3 @@ class Agent:
 
     def get_message(self, request):
         return self.llm.generate_text(request)
-
-
-if __name__ == "__main__":
-    logger = logging.getLogger("esev.agent")
