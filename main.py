@@ -12,7 +12,7 @@ def main():
     # app.run()
 
     agent = Agent(goal="Tu objetivo es crear una APP WEB")
-    print(agent.name)
+    agent.run()
 
 
 if __name__ == "__main__":
